@@ -63,7 +63,6 @@ const apollo = new ApolloServer({
 
     //token을 json 값으로 전달해줘서 정상적으로 유저의 값을 구하지 못함
      //const loggedInUser = await getUser(token);
-
      //String 값으로 전환해서 넣어주기
       const loggedInUser = await getUser(token);
      // console.log("인증된 유저의 정보값")
