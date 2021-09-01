@@ -17,7 +17,7 @@ const users_utils_1 = require("../../users/users.utils");
 const shared_utils_1 = require("../../shared/shared.utils");
 exports.default = {
     Mutation: {
-        createStore: users_utils_1.protectedResolver((_, { name, mainimg, phone, adress }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
+        createStore: users_utils_1.protectedResolver((_, { name, mainimg, phone, address }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
             try {
                 const fileUrl = yield shared_utils_1.uploadToS3(mainimg, loggedInUser.id, "stores");
                 const ok = yield client_1.default.store.create({
@@ -25,7 +25,7 @@ exports.default = {
                         name,
                         mainimg: fileUrl,
                         phone,
-                        adress,
+                        address,
                         user: {
                             connect: {
                                 id: loggedInUser.id,

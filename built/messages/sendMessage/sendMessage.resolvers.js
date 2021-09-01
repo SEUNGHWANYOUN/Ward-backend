@@ -20,7 +20,9 @@ exports.default = {
     Mutation: {
         sendMessage: users_utils_1.protectedResolver((_, { payload, roomId, userId }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
             let room = null;
+            console.log("메시지" + payload + "방번호" + roomId + "유저아이디" + userId);
             if (userId) {
+                console.log("유저 아이디 실행됨?");
                 const user = yield client_1.default.user.findUnique({
                     where: {
                         id: userId,
@@ -49,6 +51,7 @@ exports.default = {
                         },
                     },
                 });
+                console.log("durl 실행됨?");
             }
             else if (roomId) {
                 room = yield client_1.default.room.findUnique({
@@ -83,6 +86,7 @@ exports.default = {
             });
             console.log(message);
             pubsub_1.default.publish(constants_1.NEW_MESSAGE, { roomUpdates: Object.assign({}, message) });
+            console.log("여기까지 실행됨?");
             return {
                 ok: true,
                 id: message.id,

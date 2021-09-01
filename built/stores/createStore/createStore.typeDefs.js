@@ -6,7 +6,7 @@ exports.default = apollo_server_1.gql `
     createStore(
             name: String! 
             mainimg: Upload!
-            adress: String
+            address: String
             phone: String
     ): MutationResponse!
   }

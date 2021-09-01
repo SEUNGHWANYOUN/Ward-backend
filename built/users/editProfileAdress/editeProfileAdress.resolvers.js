@@ -14,15 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = __importDefault(require("../../client"));
 const users_utils_1 = require("../users.utils");
-const resolverFn = (_, { adress, adress_road, adress_detail }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
+const resolverFn = (_, { address, address_detail, roadAddress, roadAddress_detail }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
     const updatedUser = yield client_1.default.user.update({
         where: {
             id: loggedInUser.id,
         },
         data: {
-            adress,
-            adress_road,
-            adress_detail,
+            address,
+            address_detail,
+            roadAddress,
+            roadAddress_detail
         },
     });
     if (updatedUser.id) {

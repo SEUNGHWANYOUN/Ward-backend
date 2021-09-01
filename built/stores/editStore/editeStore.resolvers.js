@@ -16,7 +16,7 @@ const client_1 = __importDefault(require("../../client"));
 const users_utils_1 = require("../../users/users.utils");
 exports.default = {
     Mutation: {
-        editStore: users_utils_1.protectedResolver((_, { id, adress, name, phone, mainimg }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
+        editStore: users_utils_1.protectedResolver((_, { id, address, name, phone, mainimg }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
             const ok = yield client_1.default.store.findFirst({
                 where: {
                     id,
@@ -45,7 +45,7 @@ exports.default = {
                     id,
                 },
                 data: {
-                    adress,
+                    address,
                     phone,
                     mainimg,
                     name,

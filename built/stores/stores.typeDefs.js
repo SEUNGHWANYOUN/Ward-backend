@@ -5,11 +5,21 @@ exports.default = apollo_server_1.gql `
   type Store{
     id: Int!
     name: String!
-    mainimg: String!
-    adress: String!
+    mainimg: String
+    address: String
+    address2: String
+    zoneCode: String
+    roadAddress: String
+    roadAddress2: String
+    sigunguCode: String
+    Latitude: Float
+    Longitude: Float
+    category: String
+    state: Int!
     phone: String!
     products: [Product]
-    orders:   [Order]  
+    orders:   [Order] 
+    user:      User! 
     userId:    Int!
     minprice: Int!
     riderprice: Int!
@@ -35,12 +45,15 @@ exports.default = apollo_server_1.gql `
   type Order {
     id:           Int!
     total:        Int!
-    adress:       String!
+    address:       String!
+    address_detail: String!
     owner_commit: String
     rider_commit: String
     status:       String!
-    storeId:      Int!
-    userId:       Int!
+    storeId:      Int
+    store:        Store!
+    user:         User!
+    userId:       Int
     riderId:      Int
     order_items: [Order_Item]
     createdAt:   String!

@@ -4,9 +4,11 @@ const apollo_server_1 = require("apollo-server");
 exports.default = apollo_server_1.gql `
   type Mutation {
     editProfileAdress(
-      adress: String
-      adress_road: String
-      adress_detail: String!
+      address: String
+      address_detail: String!
+      roadAddress: String
+      roadAddress_detail: String!
+      
     ): MutationResponse!
   }
 `;

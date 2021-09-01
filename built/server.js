@@ -37,6 +37,7 @@ const apollo = new apollo_server_express_1.ApolloServer({
     playground: true,
     introspection: true,
     context: (ctx) => __awaiter(void 0, void 0, void 0, function* () {
+        //console.log(ctx.req);
         if (ctx.req) {
             return {
                 loggedInUser: yield users_utils_1.getUser(ctx.req.headers.token),
@@ -49,12 +50,27 @@ const apollo = new apollo_server_express_1.ApolloServer({
             };
         }
     }),
+    //메세지를 읽는 거에 대한 인증 처리 로그인된 유저가 채팅을 사용한 유저가 맞는지 검사
     subscriptions: {
-        onConnect: (token) => __awaiter(void 0, void 0, void 0, function* () {
+        // onConnect: async ( token ) => {
+        //Jsone string으로 해당 타입이 null일수도 있음을 암시
+        onConnect: ({ token }) => __awaiter(void 0, void 0, void 0, function* () {
+            //console.log(token);
             if (!token) {
                 throw new Error("You can't listen.");
             }
+            //JSON 값을 전환해 주는 과정
+            //const token_string = JSON.stringify(token);
+            //const token_parse = JSON.parse(token_string).token;
+            //console.log("token string 으로 전환" +token_string);
+            //console.log(tokent_pase)
+            //token을 json 값으로 전달해줘서 정상적으로 유저의 값을 구하지 못함
+            //const loggedInUser = await getUser(token);
+            //String 값으로 전환해서 넣어주기
             const loggedInUser = yield users_utils_1.getUser(token);
+            // console.log("인증된 유저의 정보값")
+            //값널처리
+            //console.log(loggedInUser)
             return {
                 loggedInUser,
             };
