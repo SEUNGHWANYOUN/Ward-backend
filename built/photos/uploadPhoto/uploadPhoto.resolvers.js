@@ -19,33 +19,23 @@ const photos_utils_1 = require("../photos.utils");
 exports.default = {
     Mutation: {
         uploadPhoto: users_utils_1.protectedResolver((_, { file, caption }, { loggedInUser }) => __awaiter(void 0, void 0, void 0, function* () {
-            try {
-                let hashtagObj = [];
-                if (caption) {
-                    hashtagObj = photos_utils_1.processHashtags(caption);
-                }
-                const fileUrl = yield shared_utils_1.uploadToS3(file, loggedInUser.id, "uploads");
-                yield client_1.default.photo.create({
-                    data: Object.assign({ file: fileUrl, caption, user: {
-                            connect: {
-                                id: loggedInUser.id,
-                            },
-                        } }, (hashtagObj.length > 0 && {
-                        hashtags: {
-                            connectOrCreate: hashtagObj,
+            let hashtagObj = [];
+            if (caption) {
+                hashtagObj = photos_utils_1.processHashtags(caption);
+            }
+            console.log(file);
+            const fileUrl = yield shared_utils_1.uploadToS3(file, loggedInUser.id, "uploads");
+            yield client_1.default.photo.create({
+                data: Object.assign({ file: fileUrl, caption, user: {
+                        connect: {
+                            id: loggedInUser.id,
                         },
-                    })),
-                });
-                return {
-                    ok: true
-                };
-            }
-            catch (e) {
-                return {
-                    ok: false,
-                    error: "cant upload photo" + e,
-                };
-            }
+                    } }, (hashtagObj.length > 0 && {
+                    hashtags: {
+                        connectOrCreate: hashtagObj,
+                    },
+                })),
+            });
         })),
     },
 };

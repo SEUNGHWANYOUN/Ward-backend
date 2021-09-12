@@ -20,6 +20,9 @@
 # (node:2217) [DEP0131] DeprecationWarning: The legacy HTTP parser is deprecated.
  - is not use parser (node v12)
 
+# redis check --- !!! 
+ - 외부레디스 사용 서버 연결해주기 로컬레디스로 사용했었음
+
 ## User:
 
 - [x] Create Account
