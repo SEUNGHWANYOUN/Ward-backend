@@ -1,7 +1,15 @@
 # Washer and Dryer 
 
 # prisma2
+
 # check file name (resolvers, typeDefs)
+ - want to upload server the heroku must cahge resolver & typeDefs  
+
+# node 12
+ - want to update node vesion must check plugins 
+ ( "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread")
+    this puuging funsioning node 12
 
 ## User:
 

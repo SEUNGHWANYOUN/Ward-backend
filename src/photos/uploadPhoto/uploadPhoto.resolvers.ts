@@ -6,12 +6,12 @@ import { processHashtags } from "../photos.utils";
 export default {
   Mutation: {
     uploadPhoto: protectedResolver(
-      async (_, { file, caption }, { loggedInUser }) => {  
-      try {       
+      async (_, { file, caption }, { loggedInUser }) => {      
         let hashtagObj = [];
         if (caption) {
           hashtagObj = processHashtags(caption);
         } 
+        console.log(file)
         const fileUrl = await uploadToS3(file, loggedInUser.id, "uploads");
         await client.photo.create({
           data: {
@@ -29,18 +29,7 @@ export default {
             }),
           },
         });
-        return {
-          ok :true
-      } ;
-        
-      } catch (e) {
 
-        return {
-          ok :false,
-          error: "cant upload photo"+e,
-      };
-        
-      }
 
       }
     ),
