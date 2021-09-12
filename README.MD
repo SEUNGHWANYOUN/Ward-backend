@@ -11,6 +11,15 @@
     "@babel/proposal-object-rest-spread")
     this puuging funsioning node 12
 
+# heroku update
+ - defaults setting 
+  "engines": {
+    "node": "12.22.6"
+  },
+
+# (node:2217) [DEP0131] DeprecationWarning: The legacy HTTP parser is deprecated.
+ - is not use parser (node v12)
+
 ## User:
 
 - [x] Create Account

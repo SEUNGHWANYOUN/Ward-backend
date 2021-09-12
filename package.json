@@ -1,6 +1,9 @@
 {
   "name": "instaclone",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.22.6"
+  },
   "description": "",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
