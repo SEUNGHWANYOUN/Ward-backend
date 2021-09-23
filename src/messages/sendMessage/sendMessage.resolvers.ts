@@ -40,7 +40,7 @@ export default {
               },
             },
           });
-          console.log("durl 실행됨?");
+          //console.log("durl 실행됨?");
         } else if (roomId) {
           room = await client.room.findUnique({
             where: {
@@ -74,10 +74,10 @@ export default {
           },
           
         });
-        console.log(message);
+        //console.log(message);
         pubsub.publish(NEW_MESSAGE, { roomUpdates: { ...message } });
 
-        console.log("여기까지 실행됨?");
+        //console.log("여기까지 실행됨?");
         return {
           ok: true,
           id: message.id,
