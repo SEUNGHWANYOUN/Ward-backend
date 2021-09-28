@@ -40,7 +40,7 @@ export default {
               },
             },
           });
-          //console.log("durl 실행됨?");
+          //지정된 룸아아디가 없다면
         } else if (roomId) {
           room = await client.room.findUnique({
             where: {
