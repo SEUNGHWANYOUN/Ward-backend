@@ -4,9 +4,9 @@ import client from "../client";
 export const getUser = async (token) => {
   try {
     //console.log(token)
-   // console.log("getuser 토큰이여"+ JSON.parse(token))
+    //console.log("getuser 토큰이여"+ JSON.parse(token))
     if (!token) {
-      console.log("토큰이 존재 않다고 판단함?")
+      //console.log("토큰이 존재 않다고 판단함?")
       return null;
     }
 

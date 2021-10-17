@@ -6,4 +6,11 @@ export default gql`
     id: Int
     error: String
   }
+
+  type SendMessageResponse {
+    ok: Boolean!
+    id: Int
+    roomId: Int
+    error: String
+  }
 `;
